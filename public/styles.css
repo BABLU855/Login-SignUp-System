@@ -1,0 +1,99 @@
+/* styles.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+body {
+  min-height: 100vh;
+  background: #f9f5f2;
+}
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.auth-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+h1 {
+  color: #2c1810;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+}
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c1810;
+}
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+input:focus {
+  outline: none;
+  border-color: #c17f59;
+}
+.btn-primary {
+  width: 100%;
+  padding: 1rem;
+  background: #c17f59;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.btn-primary:hover {
+  background: #a66b48;
+}
+.auth-links {
+  text-align: center;
+  margin-top: 1rem;
+}
+.auth-links a {
+  color: #c17f59;
+  text-decoration: none;
+} /*
+    Navigation styles */
+.navbar {
+  background: #2c1810;
+  padding: 1rem;
+  color: white;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+.nav-links a:hover {
+  background: #3d241a;
+}
+.content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+} /* Additional pages */
