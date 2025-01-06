@@ -4,24 +4,345 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile - Cozy Coffee House</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .navbar {
+        background-color: #2c1810;
+        padding: 1rem 2rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-links {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .nav-links a {
+        color: #e6d5c5;
+        text-decoration: none;
+        margin: 0 1rem;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #bf9004;
+      }
+
+      .profile-container {
+        max-width: 1200px;
+        margin: 100px auto 0;
+        padding: 2rem;
+      }
+
+      .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background-color: #f9f5f1;
+        border-radius: 10px;
+      }
+
+      .profile-picture {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #bf9004;
+      }
+
+      .profile-info h1 {
+        color: #2c1810;
+        margin-bottom: 0.5rem;
+        font-size: 2rem;
+      }
+
+      .profile-info p {
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      .profile-stats {
+        display: flex;
+        gap: 2rem;
+        margin-top: 1rem;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-value {
+        font-size: 1.5rem;
+        color: #bf9004;
+        font-weight: bold;
+      }
+
+      .stat-label {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .profile-sections {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .section-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-card h2 {
+        color: #2c1810;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #f9f5f1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .rewards-list,
+      .order-history {
+        list-style: none;
+      }
+
+      .rewards-list li,
+      .order-history li {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .order-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .order-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+
+      .order-details h4 {
+        color: #2c1810;
+        margin-bottom: 0.25rem;
+      }
+
+      .order-details p {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .edit-button {
+        background-color: #bf9004;
+        color: white;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 0.9rem;
+      }
+
+      .edit-button:hover {
+        background-color: #8f6c03;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 8px;
+        background-color: #e6d5c5;
+        border-radius: 4px;
+        margin-top: 0.5rem;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background-color: #bf9004;
+        border-radius: 4px;
+        transition: width 0.3s ease;
+      }
+
+      footer {
+        background-color: #2c1810;
+        color: #e6d5c5;
+        padding: 2rem;
+        text-align: center;
+        margin-top: 4rem;
+      }
+
+      @media (max-width: 768px) {
+        .profile-header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .profile-stats {
+          justify-content: center;
+        }
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar">
       <div class="nav-links">
         <div>
-          <a href="/home">Home</a>
-          <a href="/about">About</a>
-          <a href="/profile">Profile</a>
+          <a href="home.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="profile.html">Profile</a>
         </div>
         <div>
-          <a href="/logout">Logout</a>
+          <a href="#logout">Logout</a>
         </div>
       </div>
     </nav>
-    <div class="content">
-      <h1>Your Profile</h1>
-      <p>Manage your account settings and preferences here.</p>
+
+    <div class="profile-container">
+      <div class="profile-header">
+        <img
+          src="/api/placeholder/150/150"
+          alt="Profile Picture"
+          class="profile-picture"
+        />
+        <div class="profile-info">
+          <h1>Kyavan Sanvi</h1>
+          <p>Coffee Enthusiast since 2022</p>
+          <button class="edit-button">Edit Profile</button>
+          <div class="profile-stats">
+            <div class="stat-item">
+              <div class="stat-value">1,250</div>
+              <div class="stat-label">Reward Points</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">47</div>
+              <div class="stat-label">Orders</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">Gold</div>
+              <div class="stat-label">Member Status</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-sections">
+        <div class="section-card">
+          <h2>
+            Rewards Progress
+            <button class="edit-button">View All</button>
+          </h2>
+          <div class="rewards-list">
+            <li>
+              <div>
+                <h4>Free Cappuccino</h4>
+                <p>Collect 50 more points</p>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 80%"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h4>Birthday Special</h4>
+                <p>Available in 15 days</p>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 50%"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h4>Gold Member Status</h4>
+                <p>Achieved!</p>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 100%"></div>
+                </div>
+              </div>
+            </li>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <h2>
+            Recent Orders
+            <button class="edit-button">View All</button>
+          </h2>
+          <div class="order-history">
+            <li>
+              <div class="order-item">
+                <img
+                  src="/api/placeholder/50/50"
+                  alt="Caramel Macchiato"
+                  class="order-image"
+                />
+                <div class="order-details">
+                  <h4>Caramel Macchiato</h4>
+                  <p>Today, 9:30 AM</p>
+                </div>
+              </div>
+              <button class="edit-button">Reorder</button>
+            </li>
+            <li>
+              <div class="order-item">
+                <img
+                  src="/api/placeholder/50/50"
+                  alt="Espresso"
+                  class="order-image"
+                />
+                <div class="order-details">
+                  <h4>Double Espresso</h4>
+                  <p>Yesterday, 2:15 PM</p>
+                </div>
+              </div>
+              <button class="edit-button">Reorder</button>
+            </li>
+            <li>
+              <div class="order-item">
+                <img
+                  src="/api/placeholder/50/50"
+                  alt="Latte"
+                  class="order-image"
+                />
+                <div class="order-details">
+                  <h4>Vanilla Latte</h4>
+                  <p>Jan 3, 11:45 AM</p>
+                </div>
+              </div>
+              <button class="edit-button">Reorder</button>
+            </li>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <footer>
+      <p>© 2025 Cozy Coffee House. All rights reserved.</p>
+      <p>123 Coffee Street, Cafe City, CC 12345</p>
+      <p>Tel: (555) 123-4567</p>
+    </footer>
   </body>
 </html>
